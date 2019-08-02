@@ -4,12 +4,16 @@
   "description": "Users Microservices on KotERP",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "clean:install": "rm -rf node_modules && npm install",
+    "database:migrate": "sequelize db:migrate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Alex Mejicanos <alexmejicanos@outlook.com>",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "boom": "^7.3.0",
     "celebrate": "^10.0.1",
