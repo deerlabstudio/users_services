@@ -20,6 +20,7 @@ models.sequelize.sync()
     });
   })
   .catch((error) => {
+    console.log(error);
     logger.error(error);
     process.exit(0);
   });

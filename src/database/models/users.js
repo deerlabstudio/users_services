@@ -12,10 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Users.associate = function(models) {
     // associations can be defined here
-    Users.hasOne(models.UsersTypes, {
-      foreignKey: 'id',
-      onDelete: 'CASCADE',
-    });
+    Users.belongsTo(models.UsersTypes, { foreignKey: { name:"usersTypesId", field: "usersTypesId", allowNull: true }});
   };
   Users.prototype.toJSON =  function () {
     var values = Object.assign({}, this.get());
