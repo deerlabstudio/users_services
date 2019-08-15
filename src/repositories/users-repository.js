@@ -27,6 +27,7 @@ const store = async (user) => {
     avatar: '',
     status: true,
     usersTypesId: user.usersTypesId,
+    company: user.company,
   });
   return item;
 };
@@ -38,6 +39,7 @@ const update = async (id, user) => {
     avatar: '',
     status: true,
     usersTypesId: user.usersTypesId,
+    company: user.company,
   }, { where: { id } });
 
   if (item[0] === 1) {
