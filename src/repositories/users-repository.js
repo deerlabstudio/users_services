@@ -10,6 +10,14 @@ const all = async () => {
   return list;
 };
 
+const byCompany = async (company) => {
+  const list = await Users.findAll({
+    where: { company },
+    include: [UsersTypes],
+  });
+  return list;
+};
+
 const one = async (id) => {
   const item = await Users.findOne({ where: { id }, include: [UsersTypes] });
   return item;
@@ -62,6 +70,7 @@ const destroy = async (id) => {
 
 module.exports = {
   all,
+  byCompany,
   one,
   store,
   update,

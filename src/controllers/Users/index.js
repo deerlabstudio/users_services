@@ -5,6 +5,7 @@ class UsersController {
   constructor(router) {
     this.router = router;
     this.router.get('/users', this.getAllUsers);
+    this.router.get('/usersByCompany', this.getUsersByCompany);
     this.router.get('/users/:id', this.getOneUsers);
     this.router.post('/users', this.storeUsers);
     this.router.put('/users/:id', this.updateUsers);
@@ -14,6 +15,16 @@ class UsersController {
   async getAllUsers(req, res, next) {
     try {
       const list = await usersRepository.all();
+      res.json(list);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async getUsersByCompany(req, res, next) {
+    try {
+      const { company } = req.query;
+      const list = await usersRepository.byCompany(company);
       res.json(list);
     } catch (error) {
       next(error);
