@@ -45,7 +45,7 @@ const update = async (id, user) => {
     firstname: user.firstname,
     lastname: user.lastname,
     avatar: '',
-    status: true,
+    status: user.status,
     usersTypesId: user.usersTypesId,
     company: user.company,
   }, { where: { id } });
